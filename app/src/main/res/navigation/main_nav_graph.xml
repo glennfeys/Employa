@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomnav_nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.employa.employa.ui.discovery.DiscoveryFragment"
+        android:label="advertisement_overview_fragment"
+        tools:layout="@layout/fragment_discovery" >
+        <action
+            android:id="@+id/action_navigation_home_to_addAdvertisementFragment"
+            app:destination="@id/addAdvertisementFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_advertisementDetailsFragment"
+            app:destination="@id/advertisementDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_navigation_home_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_profileFragment"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.employa.employa.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_rating_form"
+            app:destination="@+id/ratingFrom"/>
+        <action
+            android:id="@+id/action_profile_to_details"
+            app:destination="@+id/advertisementDetailsFragment"/>
+        <action
+            android:id="@+id/action_profile_to_edit_profile"
+            app:destination="@+id/profileEditFragment"/>
+        <action
+            android:id="@+id/action_navigation_profile_to_editAdvertisementFragment"
+            app:destination="@+id/editAdvertisementFragment" />
+        <action
+            android:id="@+id/action_profile_to_ratings"
+            app:destination="@id/ratingsOverviewFragment" />
+        <action
+            android:id="@+id/action_navigation_profile_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <argument
+            android:name="hideNav"
+            app:argType="boolean" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.employa.employa.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_navigation_settings_to_changeEmailFragment"
+            app:destination="@id/changeEmailFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addAdvertisementFragment"
+        android:name="com.employa.employa.ui.advertisement.AddAdvertisementFragment"
+        android:label="AddAdvertisementFragment" />
+
+    <fragment
+        android:id="@+id/advertisementDetailsFragment"
+        android:name="com.employa.employa.ui.discovery.AdvertisementDetailsFragment"
+        android:label="fragment_advertisement_details"
+        tools:layout="@layout/fragment_advertisement_details" >
+        <action
+            android:id="@+id/action_advertisementDetailsFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_advertisementDetailsFragment_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_messages"
+        android:name="com.employa.employa.ui.chat.MessagingFragment"
+        android:label="fragment_messaging"
+        tools:layout="@layout/fragment_messaging" >
+        <action
+            android:id="@+id/action_navigation_messages_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ratingFrom"
+        android:name="com.employa.employa.ui.profile.RatingFormFragment"
+        android:label="fragment_rating_form"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.employa.employa.ui.chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="com.employa.employa.ui.profile.ProfileEditFragment"
+        android:label="fragment_profile_edit"
+        tools:layout="@layout/fragment_profile_edit">
+        <action
+            android:id="@+id/action_edit_profile_to_profile"
+            app:destination="@+id/navigation_profile"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ratingsOverviewFragment"
+        android:name="com.employa.employa.ui.profile.RatingsOverviewFragment"
+        android:label="fragment_ratings_overview"
+        tools:layout="@layout/fragment_ratings_overview">
+        <action
+            android:id="@+id/action_ratings_to_rating_form"
+            app:destination="@id/ratingFrom" />
+        <action
+            android:id="@+id/action_ratings_to_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/changeEmailFragment"
+        android:name="com.employa.employa.ui.settings.ChangeEmailFragment"
+        android:label="fragment_change_email"
+        tools:layout="@layout/fragment_change_email">
+    </fragment>
+
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.employa.employa.ui.settings.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password">
+    </fragment>
+
+    <fragment
+        android:id="@+id/editAdvertisementFragment"
+        android:name="com.employa.employa.ui.advertisement.EditAdvertisementFragment"
+        android:label="fragment_edit_advertisement"
+        tools:layout="@layout/fragment_edit_advertisement">
+    </fragment>
+
+</navigation>

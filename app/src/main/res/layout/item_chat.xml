@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="chat"
+            type="com.employa.employa.models.Chat"/>
+        <variable
+            name="listener"
+            type="com.employa.employa.ui.chat.ChatOverviewListener"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> listener.openChatConversation(chat)}">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/photoImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:civ_border_color="@color/circleImageViewBorder"
+            app:civ_border_width="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                tools:text="Chat Name"
+                android:text="@{chat.otherUser.name}" />
+
+            <TextView
+                android:id="@+id/messageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:singleLine="true"
+                android:ellipsize="end"
+                tools:text="Last message"
+                android:text="@{chat.lastMessage == null ? @string/no_messages : chat.lastMessage}" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

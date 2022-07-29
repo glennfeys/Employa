@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "858769227489",
+    "firebase_url": "https://employa-ugent.firebaseio.com",
+    "project_id": "employa-ugent",
+    "storage_bucket": "employa-ugent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858769227489:android:350e6fb0482080a3",
+        "android_client_info": {
+          "package_name": "com.employa.employa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858769227489-c8gnhavnp8h9e75fo8kuke1dqsb537v9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.employa.employa",
+            "certificate_hash": "56746edc7fcb924f059131bf313bec47bf7059cb"
+          }
+        },
+        {
+          "client_id": "858769227489-ah1io7h6t0lko4tughvh99ota574ksa2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwt2DDGxJT4JWE2ZnP4cUl_ULXvb-628o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858769227489-ah1io7h6t0lko4tughvh99ota574ksa2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

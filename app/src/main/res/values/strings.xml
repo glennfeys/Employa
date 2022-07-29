@@ -1,0 +1,226 @@
+<resources>
+    <string name="app_name">Employa</string>
+    <string name="dialog_ok">OK</string>
+
+    <!-- Messaging -->
+    <string name="no_messages">Nog geen berichten</string>
+    <string name="no_chats_title">Geen chats</string>
+    <string name="no_chats">Er zijn nog geen chats om weer te geven.</string>
+    <string name="send">Versturen</string>
+    <string name="photo_picker_button">Foto sturen</string>
+    <string name="write_a_msg">Schrijf een bericht…</string>
+
+    <!-- Auth activity -->
+    <string name="button_sigin">Inloggen</string>
+    <string name="button_signup">Account Aanmaken</string>
+    <string name="button_signout">Afmelden</string>
+    <string name="user_name">Volledige naam</string>
+    <string name="signup_disclaimer">Employa zal uw gegevens nooit delen met derde partijen.</string>
+    <string name="title_baseline">Employa maakt bijklussen gemakkelijk en veilig.</string>
+    <string name="email">E-mail</string>
+
+    <!-- Registration -->
+    <string name="password">Wachtwoord</string>
+    <string name="button_continue">Verdergaan</string>
+    <string name="button_reset_password">Wachtwoord vergeten?</string>
+    <string name="signup_complete_account_title">Vervolledig Uw Account</string>
+    <string name="signup_profile_description">Profielomschrijving</string>
+    <string name="signup_profile_description_placeholder">Vertel iets over jezelf…</string>
+    <string name="signup_confirmation_title">Bevestiging</string>
+    <string name="signup_confirmation_baseline">Hieronder ziet u een overzicht van alle gegevens die u invoerde.</string>
+    <string name="profile_picture">Profielfoto</string>
+    <string name="button_choose_image">Kies een Foto</string>
+    <string name="signup_profile_description_explainer">Maximum 500 karakters.</string>
+    <string name="signup_complete_account_baseline">De volgende velden zijn optioneel, een volledig profiel maakt echter meer kans om een antwoord te krijgen op een zoekertje.</string>
+    <string name="password_requirements">Minimum 6 karakters. Advies: een veilig wachtwoord is uniek en bevat zowel cijfers als letters en speciale tekens.</string>
+    <string name="name_requirements">Minimum 3 en maximum 30 karakters.</string>
+    <string name="toast_check_form">Gelieve de aangeduide velden na te kijken op fouten!</string>
+    <string name="toast_confirm_email">Gelieve uw e-mailadres te bevestigen, daarna kan u inloggen.</string>
+    <string name="toast_sign_up_error">Er ging iets mis bij het aanmaken van uw account</string>
+    <string name="toast_sign_in_error">Er ging iets mis bij het inloggen</string>
+    <string name="toast_sign_in">Succesvol ingelogd!</string>
+    <string name="error_field_email">Dit is geen geldig e-mailadres.</string>
+    <string name="error_email_registered">Dit e-mailadres is al geregistreerd, gelieve in te loggen.</string>
+    <string name="error_picture_chooser">Er ging iets mis bij het kiezen van een foto. Probeer het opnieuw.</string>
+    <string name="error_field_password">Uw wachtwoord moet minimaal 6 karakters bevatten.</string>
+    <string name="toast_reset_password_error">Gelieve een geldig e-mailadres in te vullen en vervolgens op "wachtwoord vergeten" te drukken.</string>
+
+    <!-- Main titles -->
+    <string name="title_home">Overzicht</string>
+    <string name="title_messages">Berichten</string>
+    <string name="title_settings">Instellingen</string>
+    <string name="title_profile">Mijn profiel</string>
+
+    <!-- Advertisement overview -->
+    <string name="react">Reageer</string>
+    <string name="search">Zoeken</string>
+    <string name="clear_filters">Filters Wissen</string>
+    <string name="filter">Filteren</string>
+    <string name="period">Periode</string>
+    <string name="distance">Afstand</string>
+    <string name="more_info">Meer info</string>
+    <string name="distance_label">&lt; %1$d KM</string>
+    <string name="pick_distance">Kies een afstand.</string>
+    <string name="pick_category">Kies een categorie.</string>
+    <string name="title_no_results">Geen resultaten.</string>
+    <string name="description_no_results">Er werden geen zoekertjes gevonden met deze criteria.
+        Pas uw criteria aan en probeer het opnieuw.</string>
+    <string name="loading">Zoekertjes laden…</string>
+    <string name="title_error">Er ging iets mis…</string>
+    <string name="description_error">We konden de zoekertjes niet opvragen.
+        Probeer het later opnieuw.</string>
+
+    <string name="timestamps_zero">Maakt niet uit</string>
+    <plurals name="timestamps">
+        <item quantity="one">%1$s</item>
+        <item quantity="two">%1$s - %2$s</item>
+        <item quantity="other">Meerdere data</item>
+    </plurals>
+
+    <string name="a_minute_ago">Een paar seconden geleden</string>
+    <plurals name="minutes_ago">
+        <item quantity="one">1 minuut geleden</item>
+        <item quantity="other">%1$d minuten geleden</item>
+    </plurals>
+    <plurals name="hours_ago">
+        <item quantity="one">1 uur geleden</item>
+        <item quantity="other">%1$d uren geleden</item>
+    </plurals>
+    <plurals name="days_ago">
+        <item quantity="one">1 dag geleden</item>
+        <item quantity="other">%1$d dagen geleden</item>
+    </plurals>
+    <string name="default_ago">Meer dan 3 dagen geleden</string>
+
+    <!-- Advertisement management -->
+    <string name="title_new_advertisement">Nieuw zoekertje</string>
+    <string name="title_edit_advertisement">Bewerk zoekertje</string>
+    <string name="title_advertisement_description">Titel &amp; omschrijving</string>
+    <string name="title_advertisement_details">Details</string>
+    <string name="title_advertisement_planning">Beschikbaarheid</string>
+    <string name="title_advertisement_overview">Klaar</string>
+    <string name="new_advertisement_help">Je staat op het punt om een nieuw zoekertje op Employa te plaatsen. Naar wat voor dienst ben je op zoek?</string>
+    <string name="edit_advertisement_help">Je staat op het punt om een zoekertje op Employa te bewerken. Waarnaar wilt u de categorie wijzigen?</string>
+    <string name="description_advertisement_help">Een goed zoekertje op Employa heeft naast een heldere titel ook een omschrijving. Zo weet de bijklusser waar hij of zij zich aan kan verwachten.</string>
+    <string name="description_advertisement_help_edit">Hier kunt u de informatie over de titel en omschrijving wijzigen.</string>
+    <string name="description_advertisement_details">Doe je zoekertje nog meer opvallen door informatie over de verloning en locatie toe te voegen.</string>
+    <string name="description_advertisement_details_edit">Hier kunt u de informatie over de verloning en locatie wijzigen.</string>
+    <string name="description_advertisement_planning">Om de juiste klusser aan dit klusje te kunnen koppelen, willen we juist nog weten wanneer deze taak kan uitgevoerd worden.</string>
+    <string name="description_advertisement_planning_edit">Ten slotte kunt u nog wijzigen wanneer de taak moet worden uitgevoerd.</string>
+    <string name="description_advertisement_overview">Hieronder zie je een overzicht van jouw zoekertje. Druk op bevestigen en voor je het weet heb je een berichtje van een klusser!</string>
+    <string name="description_advertisement_overview_edit">Hieronder zie je een overzicht van jouw zoekertje. Druk op bewerken om de wijzigingen op te slaan!</string>
+    <string name="placeholder_title">Titel</string>
+    <string name="placeholder_description">Omschrijving</string>
+    <string name="placeholder_pay">Verloning (b.v. €9/u)</string>
+    <string name="date_does_not_matter">Maakt niet uit</string>
+    <string name="date_choice">Een of meer data</string>
+    <string name="select_dates">Data kiezen</string>
+
+    <!-- Generic stuff -->
+    <string name="confirm">Bevestigen</string>
+    <string name="delete">Verwijderen</string>
+    <string name="advertisement_placed">Zoekertje geplaatst!</string>
+    <string name="something_went_wrong">Er ging iets mis! Probeer het later opnieuw.</string>
+    <string name="complete_action_using">Voltooi actie door</string>
+    <string name="back_button">Terug knop</string>
+
+    <string name="title_add_adv">Titel:</string>
+    <string name="description_add_adv">Omschrijving:</string>
+    <string name="pay_add_adv">Verloning:</string>
+    <string name="enter_address">Enter address here</string>
+    <string name="open_maps_button">Open Maps</string>
+    <string name="location_title">Locatie:</string>
+    <string name="put_nl">Plaatsen</string>
+    <string name="when">Wanneer</string>
+
+    <!-- Maps / locatie -->
+    <string name="location_not_found">Locatie niet gevonden</string>
+    <string name="select_a_location">Selecteer een locatie</string>
+
+    <!-- Advertisement detail -->
+    <string name="react_button">Reageren</string>
+    <string name="ad_detail_date">Beschikbare data:</string>
+    <string name="ad_detail_payment">Verloning</string>
+    <string name="profile_button">Profiel</string>
+    <string name="advertisement_details_title">Details</string>
+    <string name="ad_description_title">Omschrijving:</string>
+    <string name="ad_location_title">Locatie:</string>
+    <string name="ad_details_title">Details:</string>
+
+    <string name="chat_name">Chat naam</string>
+    <string name="marker_on_worklocation">Marker op werklocatie</string>
+    <string name="edit">Aanpassen</string>
+    <string name="delete_success">Zoekertje verwijderd!</string>
+
+    <!-- Profile -->
+    <string name="profile_my_ads">Mijn zoekertjes:</string>
+    <string name="profile_ads">Zoekertjes van deze persoon:</string>
+    <string name="profile_no_ads">Deze gebruiker heeft nog geen zoekertjes.</string>
+    <string name="profile_no_my_ads">Je hebt nog geen zoekertjes.</string>
+    <string name="no_average_score">nog geen beoordelingen</string>
+    <plurals name="average_score">
+        <item quantity="one">%1$s/10 uit %2$d beoordeling</item>
+        <item quantity="other">%1$s/10 uit %2$d beoordelingen</item>
+    </plurals>
+    <string name="contact_button">Contacteer</string>
+    <string name="profile_form_description">Beschrijving:</string>
+    <string name="profile_form_username">Naam:</string>
+    <string name="profile_form_submit">wijzigingen opslaan</string>
+    <string name="form_description_requirements">De omschrijving mag niet leeg zijn</string>
+    <string name="profile_edit_title">Bewerk profiel</string>
+
+    <!-- Ratings -->
+    <string name="score">%1$d/10</string>
+    <string name="ratings_title">Beoordelingen</string>
+    <string name="no_ratings">Deze persoon heeft nog geen recensies</string>
+    <string name="rating_form_score">Score: %1$d/10</string>
+    <string name="rating_form_rating">Beoordeling:</string>
+    <string name="rating_form_react">Reactie toevoegen</string>
+    <string name="rating_form_edit">Reactie aanpassen</string>
+    <string name="rating_create_title">Creëer beoordeling</string>
+    <string name="rating_edit_title">Bewerk beoordeling</string>
+
+    <!-- Offline event -->
+    <string name="offline_message">U bent offline!</string>
+    <string name="offline_button">Probeer te verbinden</string>
+    <string name="connected">Verbonden!</string>
+    <string name="not_connected">Geen verbinding!</string>
+
+    <!-- Notificaties (uitleg) -->
+    <string name="notifications_description">Notificaties over nieuwe chatberichten.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="add_rating_button">Beoordeel</string>
+    <string name="description_title">Beschrijving</string>
+    <string name="score_title">Score</string>
+    <string name="reactie_toevoegen">Reactie toevoegen</string>
+    <string name="reactie_aanpassen">Reactie aanpassen</string>
+    <string name="add_title">Zoekertjes van deze persoon:</string>
+    <string name="name_title">Naam:</string>
+    <string name="edit_profile_picture">Profielfoto aanpassen</string>
+    <string name="commit_changes">Wijzigingen opslaan</string>
+    <string name="advertisement_edited">Zoekertje bijgewerkt!</string>
+    <string name="edit_overview">Bijwerken</string>
+
+    <!-- Settings dialog -->
+    <string name="new_email">Nieuw E-mailadres:</string>
+    <string name="toast_reset_password">Er werd een wachtwoordreset e-mail gestuurd naar het opgegeven adres.</string>
+    <string name="toast_incorrect_password">Wachtwoord incorrect!</string>
+    <string name="toast_email_changed">Uw e-mailadres werd gewijzigd. U moet het nieuwe mailadres wel nog bevestigen.</string>
+    <string name="make_sure_everything_is_filled_in">Zorg dat alles ingevuld is.</string>
+    <string name="toast_email_incorrect">Er ging iets mis: Controleer of het e-mailadres nog niet in gebruik is en of u het juiste wachtwoord invoerde.</string>
+    <string name="confirm_change_password">Bent uw zeker dat u uw wachtwoord wil veranderen?</string>
+    <string name="cancel">Annuleren</string>
+    <string name="change_email">E-mailadres Wijzigen</string>
+    <string name="change_password">Wachtwoord Wijzigen</string>
+    <string name="change">Wijzigen</string>
+    <string name="current_password">Huidig wachtwoord:</string>
+    <string name="change_password_help">Als u op onderstaande knop drukt zal er een mail naar uw e-mailadres gezonden worden. Met de link in deze e-mail kan u uw wachtwoord wijzgen.</string>
+    <string name="category">Categorie</string>
+
+    <string name="material_calendar_today_button">Vandaag</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Annuleren</string>
+</resources>

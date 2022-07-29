@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <ripple
+            android:color="@color/ripple">
+            <item>
+                <shape android:shape="oval">
+                    <gradient
+                        android:type="linear"
+                        android:angle="90"
+                        android:startColor="@color/colorPrimary"
+                        android:endColor="@color/colorAccent" />
+                    <size android:height="100dp" android:width="100dp" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+    <!-- 16dp padding cause of the specs of the FloatingActionButton
+         Container: 56dp x 56dp
+         Icon: 24dp x 24dp
+         Margins: 16dp -->
+    <item
+        android:drawable="@drawable/ic_add_white_24dp"
+        android:left="16dp"
+        android:right="16dp"
+        android:top="16dp"
+        android:bottom="16dp" />
+</layer-list>

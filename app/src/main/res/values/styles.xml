@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeFull" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/comfortaa_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="HeadlineText" parent="@android:style/TextAppearance.Large">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="DescriptionText" parent="@android:style/TextAppearance.Small">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TopbarText">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <dimen name="day_label_size_events_enabled">30dp</dimen>
+    <dimen name="day_label_size_events_disabled">30dp</dimen>
+
+</resources>

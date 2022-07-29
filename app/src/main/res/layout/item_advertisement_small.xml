@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.employa.employa.models.Advertisement" />
+
+        <variable
+            name="dateFormatter"
+            type="com.employa.employa.formatters.AdvertisementDateFormat" />
+
+        <variable
+            name="buttonHandler"
+            type="com.employa.employa.ui.discovery.ButtonClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:clipToPadding="false">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#D2E4F5"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="2dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp">
+
+                <!-- advertisement info -->
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@{item.title}"
+                    tools:text="This is a test title!" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    android:text="@{item.description}"
+                    tools:text="This is a long description to test how it looks, two lines should be enough" />
+
+                <!-- extra advertisement info -->
+                <TextView
+                    android:id="@+id/extra_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description"
+                    android:text="@{item.payment + ` · ` + dateFormatter.formatArray(item.timestamps)}"
+                    tools:text="ExtraInfo" />
+
+                <TextView
+                    android:id="@+id/tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/extra_info"
+                    android:text="@{item.category}"
+                    tools:text="Tags" />
+
+                <!-- buttons -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tags">
+
+                    <Button
+                        android:id="@+id/button_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:background="@drawable/button"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:text="@string/more_info"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{() -> buttonHandler.onMoreInfoClicked(item)}" />
+
+                    <ImageButton
+                        android:id="@+id/button_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:background="@drawable/edit_button_bordered"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_toStartOf="@id/button_delete"
+                        android:src="@drawable/ic_edit_blue_24dp"
+                        android:onClick="@{() -> buttonHandler.onEditClicked(item)}"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+
+                    <ImageButton
+                        android:id="@+id/button_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15sp"
+                        app:layout_goneMarginStart="0sp"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:background="@drawable/delete_button_bordered"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_delete_red500_24dp"
+                        android:onClick="@{() -> buttonHandler.onDeleteClicked(item)}"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

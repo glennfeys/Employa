@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fabHandler"
+            type="com.employa.employa.ui.components.FabClickHandler" />
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.FeedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.discovery.DiscoveryFragment">
+
+        <com.tylersuehr.esr.EmptyStateRecyclerView
+            android:id="@+id/discoveryRecyclerView"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="-10dp"
+            android:clipToPadding="false"
+            android:paddingStart="10sp"
+            android:paddingTop="135sp"
+            android:paddingEnd="10sp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/search"
+            app:state="@{viewModel.state}" />
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:blurOverlayColor="@color/blurOverlay">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:orientation="vertical">
+
+                <com.mancj.materialsearchbar.MaterialSearchBar
+                    android:id="@+id/searchBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:hint="@string/search"
+                    app:maxSuggestionsCount="0"
+                    app:query="@={viewModel.query}"
+                    app:speechMode="true" />
+
+                <HorizontalScrollView
+                    android:scrollbars="none"
+                    android:scrollbarThumbVertical="@null"
+                    android:scrollbarThumbHorizontal="@null"
+                    android:layout_marginBottom="10sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:foregroundGravity="center_vertical"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/filter_categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15sp"
+                            android:background="@drawable/button_bordered"
+                            android:fontFamily="@font/montserrat"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:text="@string/category"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            app:enabledButton="@{viewModel.categories}" />
+
+                        <Button
+                            android:id="@+id/filter_period"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15sp"
+                            android:background="@drawable/button_bordered"
+                            android:fontFamily="@font/montserrat"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:text="@string/period"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            app:enabledButton="@{viewModel.period}" />
+
+                        <Button
+                            android:id="@+id/filter_distance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15sp"
+                            android:background="@drawable/button_bordered"
+                            android:fontFamily="@font/montserrat"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:text="@string/distance"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            app:enabledButton="@{viewModel.radius}" />
+
+                        <ImageButton
+                            android:id="@+id/clear_filters"
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="15sp"
+                            android:layout_marginEnd="15sp"
+                            android:background="@drawable/background_transparent"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:contentDescription="@string/clear_filters"
+                            android:fontFamily="@font/montserrat"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:scaleType="fitStart"
+                            android:src="@drawable/ic_close"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp"
+                            app:visibility="@{safeUnbox(viewModel.isFiltered)}" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+        </eightbitlab.com.blurview.BlurView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> fabHandler.onFabClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/floating_action_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

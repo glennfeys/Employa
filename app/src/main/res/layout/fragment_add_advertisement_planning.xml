@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.advertisement.AdvertisementPlanningFragment">
+
+    <data>
+        <import type="com.employa.employa.viewmodel.DatePreference"/>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.AddAdvertisementViewModel"/>
+        <variable
+            name="planningListener"
+            type="com.employa.employa.ui.advertisement.PlanningListener"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="55dp"
+            android:orientation="vertical"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_advertisement_planning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:text="@string/title_advertisement_planning"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/description_advertisement_planning" />
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonDateDoesNotMatter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:checked="@{viewModel.datePreference.equals(DatePreference.NO_PREFERENCE)}"
+                        android:onClick="@{() -> viewModel.setDatePreference(DatePreference.NO_PREFERENCE)}"
+                        android:text="@string/date_does_not_matter" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonDateChoice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:checked="@{viewModel.datePreference.equals(DatePreference.HAVE_PREFERENCE)}"
+                        android:onClick="@{() -> viewModel.setDatePreference(DatePreference.HAVE_PREFERENCE)}"
+                        android:text="@string/date_choice" />
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_primary"
+                    android:onClick="@{() -> planningListener.selectDates()}"
+                    android:text="@string/select_dates"
+                    android:textColor="@color/white"
+                    app:visibility="@{viewModel.datePreference.equals(DatePreference.HAVE_PREFERENCE)}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/preferredDates"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:visibility="@{viewModel.datePreference.equals(DatePreference.HAVE_PREFERENCE)}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

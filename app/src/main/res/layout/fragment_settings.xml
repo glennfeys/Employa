@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.ChangeEmailViewmodel"/>
+        <variable
+            name="actionHandler"
+            type="com.employa.employa.ui.settings.SettingsListener" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_bold"
+                android:text="@string/title_settings"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="16dp"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/changePasswordButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:onClick="@{() -> actionHandler.changePassword()}"
+                android:text="@string/change_password" />
+
+            <Button
+                android:id="@+id/changeEmailbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> actionHandler.changeEmail()}"
+                android:text="@string/change_email" />
+
+            <Button
+                android:id="@+id/button_signout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> actionHandler.logOut()}"
+                android:layout_marginTop="50dp"
+                android:text="@string/button_signout" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

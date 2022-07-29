@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <import type="com.employa.employa.viewmodel.DatePreference"/>
+
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.AddAdvertisementViewModel"/>
+
+        <variable
+            name="actionHandler"
+            type="com.employa.employa.ui.profile.AdvertisementListener" />
+
+        <variable
+            name="planningListener"
+            type="com.employa.employa.ui.advertisement.PlanningListener"/>
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_margin" >
+
+            <TextView
+                android:id="@+id/editTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:gravity="center_horizontal"
+                android:text="@string/title_edit_advertisement"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/categoryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:text="@string/category"
+                android:textColor="@color/colorPrimary" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_add_adv"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/editTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="Titel"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.titleMutableData}" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description_add_adv"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/colorPrimary"/>
+
+            <EditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="@string/placeholder_description"
+                android:inputType="textMultiLine"
+                android:text="@={viewModel.descriptionMutableData}" />
+
+            <TextView
+                android:id="@+id/paymentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pay_add_adv"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/colorPrimary"/>
+
+            <EditText
+                android:id="@+id/editTextPayment"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/pay_add_adv"
+                android:inputType="text"
+                android:text="@={viewModel.payMutableData}"/>
+
+            <TextView
+                android:id="@+id/locationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ad_location_title"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.location.address}"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/comfortaa_bold"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_primary"
+                android:textColor="@color/white"
+                android:text="@string/open_maps_button"
+                android:id="@+id/open_maps_button"/>
+
+            <TextView
+                android:id="@+id/detail_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ad_detail_date"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/colorPrimary"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="55dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonDateDoesNotMatter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:checked="@{viewModel.datePreference.equals(DatePreference.NO_PREFERENCE)}"
+                        android:onClick="@{() -> viewModel.setDatePreference(DatePreference.NO_PREFERENCE)}"
+                        android:text="@string/date_does_not_matter" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonDateChoice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:checked="@{viewModel.datePreference.equals(DatePreference.HAVE_PREFERENCE)}"
+                        android:onClick="@{() -> viewModel.setDatePreference(DatePreference.HAVE_PREFERENCE)}"
+                        android:text="@string/date_choice" />
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/button_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/button_primary"
+                    android:text="@string/select_dates"
+                    android:textColor="@color/white"
+                    android:onClick="@{() -> planningListener.selectDates()}"
+                    app:visibility="@{viewModel.datePreference.equals(DatePreference.HAVE_PREFERENCE)}" />
+
+                <!-- fixed height, geen wrap_content omdat anders verspringt -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/preferredDates"
+                    android:layout_width="fill_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:visibility="@{viewModel.datePreference.equals(DatePreference.HAVE_PREFERENCE)}" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_primary"
+                android:text="@string/edit_overview"
+                android:textColor="@color/white"
+                android:onClick="@{() -> actionHandler.edit(viewModel.advertisementId)}"/>
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

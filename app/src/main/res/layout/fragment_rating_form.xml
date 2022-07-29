@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.profile.RatingFormFragment">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="actionHandler"
+            type="com.employa.employa.ui.profile.RatingFormListener" />
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.RatingFormViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_margin" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/comfortaa_bold"
+                android:gravity="center_horizontal"
+                android:text="@string/rating_create_title"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                visibility="@{viewModel.rating == null}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/comfortaa_bold"
+                android:gravity="center_horizontal"
+                android:text="@string/rating_edit_title"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                visibility="@{viewModel.rating != null}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/rating_form_rating"/>
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:minLines="6"
+                android:gravity="top|start"
+                android:layout_marginTop="8dp"
+                app:errorMessage="@{viewModel.descriptionError}"
+                android:text="@{viewModel.description}"/>
+
+            <TextView
+                android:id="@+id/scoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/colorPrimary" />
+
+            <SeekBar
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:max="10"
+                android:progress="@{viewModel.score}"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_form_react"
+                android:textColor="@color/white"
+                android:background="@drawable/button_primary"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                app:visibility="@{viewModel.rating == null}"
+                android:onClick="@{() -> actionHandler.createRating()}"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rating_form_edit"
+                android:textColor="@color/white"
+                android:background="@drawable/button_primary"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                app:visibility="@{viewModel.rating != null}"
+                android:onClick="@{() -> actionHandler.editRating()}"/>
+        </LinearLayout>
+    </ScrollView>
+</layout>

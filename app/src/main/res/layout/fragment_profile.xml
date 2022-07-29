@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.ProfileViewModel"/>
+
+        <variable
+            name="actionHandler"
+            type="com.employa.employa.ui.profile.ProfileListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_margin">
+
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_arrow_back_24dp"
+                    android:contentDescription="@string/back_button"
+                    android:onClick="@{() -> actionHandler.goBack()}"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/edit_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_edit_blue_24dp"
+                    android:onClick="@{() -> actionHandler.editProfile()}"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/top_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:visibility="@{viewModel.userData != null}">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_pic"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="@color/circleImageViewBorder" />
+
+                    <TextView
+                        android:id="@+id/profile_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:text="@{viewModel.userData.name}"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/avgScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="7dp"
+                        android:layout_gravity="center"
+                        android:textSize="15sp"
+                        tools:text="beoordelingen"
+                        android:textColor="@color/colorPrimary"
+                        android:drawableEnd="@{safeUnbox(viewModel.size) > 0 ? @drawable/ic_chevron_right_blue_24dp : @drawable/empty}"
+                        android:onClick="@{() -> actionHandler.onClickRatings()}"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.userData != null ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/top_section"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="@{viewModel.userData.description}" />
+
+                    <LinearLayout
+                        android:id="@+id/contact_rate_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/button_bordered"
+                            android:onClick="@{() -> actionHandler.react()}"
+                            android:text="@string/contact_button" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/button_bordered"
+                            android:onClick="@{() -> actionHandler.addRating()}"
+                            android:text="@string/add_rating_button"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/advertisementTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:textAllCaps="true"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/advertisementSubTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        app:visibility="@{viewModel.advertisements.size == 0}" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/advertisementList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:overScrollMode="never"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_advertisement_small" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.userData == null ? View.VISIBLE : View.GONE}"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+</layout>

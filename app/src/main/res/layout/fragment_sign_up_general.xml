@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.auth.signup.SignUpGeneralFragment">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.SignUpViewModel"/>
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+    >
+
+        <TextView
+            android:id="@+id/title_baseline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80sp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/button_signup"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/fullname_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/user_name"
+            android:text="@={viewModel.nameMutableData}"
+            app:errorMessage="@{viewModel.usernameError}"
+            android:inputType="textPersonName"
+            android:maxLength="30"
+            android:singleLine="true"
+            android:textAllCaps="false" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/name_requirements"
+            android:textAlignment="center"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/email_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="email"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="@={viewModel.emailMutableData}"
+            app:errorMessage ="@{viewModel.emailError}"
+            android:singleLine="true"
+            android:textAllCaps="false" />
+
+        <EditText
+            android:id="@+id/password_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:imeOptions="actionDone"
+            android:text="@={viewModel.passwordMutableData}"
+            app:errorMessage="@{viewModel.passwordError}"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/password_requirements"
+            android:textAlignment="center"
+            android:textSize="12sp"/>
+
+        <Button
+            android:id="@+id/button_signup"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/button_continue" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/signup_disclaimer"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+    </ScrollView>
+</layout>

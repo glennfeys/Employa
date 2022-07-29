@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/authenticationOverviewFragment">
+
+    <fragment
+        android:id="@+id/authenticationOverviewFragment"
+        android:name="com.employa.employa.ui.auth.AuthenticationOverview"
+        android:label="AuthenticationOverviewFragment"
+        tools:layout="@layout/fragment_authentication_overview">
+        <action
+            android:id="@+id/action_authenticationOverviewFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_authenticationOverviewFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.employa.employa.ui.auth.signin.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.employa.employa.ui.auth.signup.SignUpFragment"
+        android:label="signUpFragment"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_overviewFragment"
+            app:destination="@id/authenticationOverviewFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/auth_nav_graph"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+
+</navigation>

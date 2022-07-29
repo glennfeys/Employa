@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.view.Gravity"/>
+        <variable
+            name="message"
+            type="com.employa.employa.models.ChatMessage"/>
+        <variable
+            name="isPhoto"
+            type="boolean"/>
+        <variable
+            name="isMe"
+            type="boolean"/>
+        <variable
+            name="dateFormat"
+            type="java.text.SimpleDateFormat"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_vertical_half_margin"
+        android:paddingBottom="@dimen/activity_vertical_half_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:id="@+id/chat_message_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@{isMe ? @drawable/chat_background_right : @drawable/chat_background_left}"
+            android:gravity="@{isMe ? Gravity.RIGHT : Gravity.LEFT}"
+            android:orientation="vertical"
+            android:padding="8dp"
+            tools:background="@drawable/chat_background_right"
+            android:elevation="2dp">
+
+            <ImageView
+                android:id="@+id/photoImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                app:visibility="@{isPhoto}" />
+
+            <TextView
+                android:id="@+id/messageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{message.text}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                app:visibility="@{!isPhoto}"
+                android:textColor="@{isMe ? @color/white : @color/textMediumColor}"
+                tools:text="Message" />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dateFormat.format(message.timestamp.toDate())}"
+                android:textColor="@{isMe ? @color/white : @color/textSmallColor}"
+                android:textSize="12sp"
+                tools:text="Timestamp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</layout>

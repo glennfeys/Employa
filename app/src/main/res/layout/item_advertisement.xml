@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.employa.employa.models.Advertisement" />
+
+        <variable
+            name="dateFormatter"
+            type="com.employa.employa.formatters.AdvertisementDateFormat" />
+
+        <variable
+            name="buttonHandler"
+            type="com.employa.employa.ui.discovery.ButtonClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.employa.employa.viewmodel.FeedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:clipToPadding="false">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/babyBlue"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="2dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp">
+
+                <!-- user info -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="@{() -> buttonHandler.goToProfile(item.ownerRef.getId())}" >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/picture"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="@color/circleImageViewBorder"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="@{item.owner.name}"
+                        android:textSize="16sp"
+                        app:layout_constraintLeft_toRightOf="@id/picture"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@{dateFormatter.timeSince(item.created)}"
+                        app:layout_constraintLeft_toRightOf="@id/picture"
+                        app:layout_constraintTop_toBottomOf="@id/username"
+                        tools:text="Time passed since upload" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- advertisement info -->
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{item.title}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/user_info"
+                    tools:text="This is a test title!" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@{item.description}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    tools:text="This is a long description to test how it looks, three lines should be enough" />
+
+                <!-- extra advertisement info -->
+                <TextView
+                    android:id="@+id/extra_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@{item.payment + ` · ` + dateFormatter.formatArray(item.timestamps)}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description"
+                    tools:text="ExtraInfo" />
+
+                <TextView
+                    android:id="@+id/tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@{item.category}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/extra_info"
+                    tools:text="Tags" />
+
+                <!-- buttons -->
+                <Button
+                    android:id="@+id/reactButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/button"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="@{() -> buttonHandler.onReactClicked(item)}"
+                    android:text="@string/react"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/extra_info" />
+
+                <Button
+                    android:id="@+id/button_more_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/button_bordered"
+                    android:fontFamily="@font/montserrat"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="@{() -> buttonHandler.onMoreInfoClicked(item)}"
+                    android:text="@string/more_info"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@id/reactButton"
+                    app:layout_constraintTop_toBottomOf="@id/extra_info"
+                    app:layout_goneMarginStart="0sp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
