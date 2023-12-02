@@ -5,11 +5,7 @@ In deze repository vind u de code terug voor het project Employa dat groep 1 in 
 
 Het doel van de toepassing is om opdrachtgevers in contact te brengen met bijklussers die iets zowel iets willen bijverdienen als ook iemand in hun buurt een handje te helpen.
 
-Een gebruiker heeft een account nodig om de toepassing te kunnen gebruiken, zowel bijklusser als opdrachtgever hebben dezelfde toegang tot Employa gezien we niemand in een hokje willen duwen, een opdrachtgever kan immers zelf ook bijklussen of omgekeerd. Om het testen voor u te vereenvoudigen kan u onderstaande inloggegevens gebruiken of u kan zelf een account aanmaken (**Let op u moet uw e-mailadres na registratie bevestigen, in de eerste sprint waren hiermee nog problemen, deze zijn verholpen**)
-
-| **E-mailadres** | laurens.debackere@ugent.be |
-|-----------------|----------------------------|
-| **Wachtwoord**  | Employa                    |
+Een gebruiker heeft een account nodig om de toepassing te kunnen gebruiken, zowel bijklusser als opdrachtgever hebben dezelfde toegang tot Employa gezien we niemand in een hokje willen duwen, een opdrachtgever kan immers zelf ook bijklussen of omgekeerd.
 
 ## Functionaliteiten
 
